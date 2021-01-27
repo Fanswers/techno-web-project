@@ -19,10 +19,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/profileUser', function(){
+Route::get('/profileUser', function () {
     return view('profileUser');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/new_restaurant', '\App\Http\Controllers\RestaurantsController@new_restaurant');
+Route::get('/test', function () {
+    return view('test');
+});
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/profileUser', [App\Http\Controllers\ProfileController::class, 'index']);

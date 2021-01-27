@@ -1,6 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+<a href="/profileUser?informations">Mes informations</a>
+<a href="/profileUser?commandes">Mes commandes</a>
+
+@if (Request::has('informations'))
+<li class="nav-item">
+    <p>{{ Auth::user()->secondName }}</p>
+    <p>{{ Auth::user()->firstName }}</p>
+    <p>{{ Auth::user()->email }}</p>
+    <p>{{ Auth::user()->adresse }}</p>
+    <p>{{ Auth::user()->phone }}</p>
+    <p>{{ Auth::user()->solde }}</p>
+</li>
+@endif
+
+@if ( Auth::user()->type == 'restaurateur' )
+<a href="/profileUser?restaurant">Mon restaurant</a>
+@endif
+
+@if (Request::has('commandes'))
+<li class="nav-item">
+    <p>commande 1</p>
+    <p>commande 2</p>
+    <p>commande 3</p>
+</li>
+@endif
+@foreach ($user as $user)
+{{ $user->secondName }}
+@endforeach
+{{ Auth::user()->secondName }}
+
+
+
+@if (Request::has('restaurant'))
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -18,9 +53,9 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -32,9 +67,9 @@
                                 <input id="addresse" type="text" class="form-control @error('adresse') is-invalid @enderror" name="addresse" value="{{ old('addresse') }}" required autocomplete="addresse" autofocus>
 
                                 @error('addresse')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -46,9 +81,9 @@
                                 <input id="image" type="text" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
 
                                 @error('image')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -66,4 +101,5 @@
         </div>
     </div>
 </div>
+@endif
 @endsection
