@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
 Auth::routes();
 
-Route::get('/test', function (){
-    return view('test');
+Route::get('/profileUser', function(){
+    return view('profileUser');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::post('/new_restaurant', '\App\Http\Controllers\RestaurantsController@new_restaurant');
