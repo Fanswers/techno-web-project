@@ -23,6 +23,12 @@ Route::get('/profileUser', function(){
     return view('profileUser');
 });
 
+Route::get('/restaurant', function(){
+    return view('restaurant');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::post('/new_restaurant', '\App\Http\Controllers\RestaurantsController@new_restaurant');
+
+Route::post('/new_plat', '\App\Http\Controllers\PlatsController@new_plat');
