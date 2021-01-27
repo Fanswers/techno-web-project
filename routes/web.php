@@ -23,4 +23,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/profileUser', [App\Http\Controllers\ProfileController::class, 'index']);
 
+Route::get('/restaurant', function(){
+    return view('restaurant');
+});
+
 Route::post('/new_restaurant', '\App\Http\Controllers\RestaurantsController@new_restaurant');
+
+Route::post('/new_plat', '\App\Http\Controllers\PlatsController@new_plat');

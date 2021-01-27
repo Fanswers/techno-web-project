@@ -10,7 +10,7 @@ class RestaurantsController extends Controller
 {
     public function new_restaurant () {
         request()->validate([
-            'name' => ['required'],
+            'name' => ['required', 'max:255'],
             'image' => ['required'],
             'addresse' => ['required'],
         ]);
