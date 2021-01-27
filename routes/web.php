@@ -30,3 +30,5 @@ Route::get('/restaurant', function(){
 Route::post('/new_restaurant', '\App\Http\Controllers\RestaurantsController@new_restaurant');
 
 Route::post('/new_plat', '\App\Http\Controllers\PlatsController@new_plat');
+
+Route::post('/modify_restaurant', '\App\Http\Controllers\RestaurantsController@modify_restaurant');

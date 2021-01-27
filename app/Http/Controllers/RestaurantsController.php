@@ -21,5 +21,20 @@ class RestaurantsController extends Controller
             'addresse' => request('addresse'),
             'user_id' => auth()->id()
         ]);
+
+        return back();
+    }
+
+    public function modify_restaurant () {
+        $tempid = 1;
+
+        $restaurant = Restaurant::find($tempid);
+        $restaurant->update([
+            'name' => request('name'),
+            'image' => request('image'),
+            'addresse' => request('addresse'),
+        ]);
+
+        return back();
     }
 }
