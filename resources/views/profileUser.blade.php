@@ -28,7 +28,6 @@
         <br>
         @endforeach
         @endif
-
         @if (Request::has('informations'))
         <div class="card">
             <div class="card-body">
@@ -43,13 +42,16 @@
             </div>
         </div>
         @endif
-
         @if (Request::has('commandes'))
-        <li class="nav-item">
-            <p>commande 1</p>
-            <p>commande 2</p>
-            <p>commande 3</p>
-        </li>
+        <div class="card">
+            <div class="card-body">
+                <li class="nav-item">
+                    <p>commande 1</p>
+                    <p>commande 2</p>
+                    <p>commande 3</p>
+                </li>
+            </div>
+        </div>
         @endif
     </div>
 </div>
