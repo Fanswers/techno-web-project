@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="flex items-center justify-end mt-4 top-auto">
+    <a class="bg-red-500 text-blue-600 px-2 py-2 rounded-md mr-2" href="/undoCommande">Annuler la commande</a>
+</div>
 @foreach ($plat as $plat)
 <!-- item card -->
 <div class="md:flex shadow-lg  mx-6 md:mx-auto my-40 max-w-lg md:max-w-2xl h-64">
@@ -18,7 +21,7 @@
             {{ $plat->description }}
         </p>
         <div class="flex items-center justify-end mt-4 top-auto">
-            <button class=" bg-gray-200 text-blue-600 px-2 py-2 rounded-md mr-2">Ajouter</button>
+            <a class=" bg-gray-200 text-blue-600 px-2 py-2 rounded-md mr-2" href="/newPlatCommande?id={{ $plat->id }}">Ajouter</a>
         </div>
     </div>
 </div>

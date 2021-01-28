@@ -58,3 +58,7 @@ Route::get('/userModify', '\App\Http\Controllers\UserController@user');
 Route::post('/modifyActualUser', '\App\Http\Controllers\UserController@modify_user');
 
 Route::get('/deleteUser', '\App\Http\Controllers\UserController@delete_user');
+
+Route::get('/undoCommande', '\App\Http\Controllers\CommandesController@undo_commande');
+
+Route::get('/newPlatCommande', '\App\Http\Controllers\PlatCommandesController@new_plat_commande');
