@@ -6,6 +6,20 @@
 <a href="/profileUser?informations">Mes informations</a>
 <a href="/profileUser?commandes">Mes commandes</a>
 
+@if ( Auth::user()->type == 'restaurateur' )
+<a href="/profileUser?restaurant">Mon restaurant</a>
+@endif
+
+@if (Request::has('restaurant') )
+<a href="/profileUser?addRestaurant">Ajouter un restaurant</a>
+@foreach ($restaurant as $restaurant)
+<p>{{ $restaurant->name }}</p>
+<p>{{ $restaurant->image }}</p>
+<p>{{ $restaurant->addresse }}</p>
+<br>
+@endforeach
+@endif
+
 @if (Request::has('informations'))
 <li class="nav-item">
     <p>{{ Auth::user()->secondName }}</p>
@@ -17,9 +31,7 @@
 </li>
 @endif
 
-@if ( Auth::user()->type == 'restaurateur' )
-<a href="/profileUser?restaurant">Mon restaurant</a>
-@endif
+
 
 @if (Request::has('commandes'))
 <li class="nav-item">
@@ -28,14 +40,12 @@
     <p>commande 3</p>
 </li>
 @endif
-@foreach ($user as $user)
-{{ $user->secondName }}
-@endforeach
+
 {{ Auth::user()->secondName }}
 
 
 
-@if (Request::has('restaurant'))
+@if (Request::has('addRestaurant'))
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-4">
@@ -43,7 +53,7 @@
                 <div class="card-header">{{ __('Add restaurant') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/new_restaurant">
+                    <form method="POST" action="/profileUser">
                         @csrf
 
                         <div class="form-group row">
