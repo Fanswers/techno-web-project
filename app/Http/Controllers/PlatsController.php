@@ -45,12 +45,19 @@ class PlatsController extends Controller
         return back();
     }
 
-    public function delete_plat (request $request)
+    public function delete_plat(request $request)
     {
         $id = $request->id;
-        
+
         Plat::where('id', $id)->delete();
 
         return back();
+    }
+
+    public function affichage_plat(request $request)
+    {
+        $id = $request->id;
+        $platDuRestaurant = Plat::all()->where('restaurant_id', $id);
+        return view('restaurant', ['plat' => $platDuRestaurant]);
     }
 }

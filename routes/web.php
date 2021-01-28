@@ -44,10 +44,11 @@ Route::get('/restaurantAdmin', '\App\Http\Controllers\RestaurantsController@rest
 
 Route::get('/restaurantUser', '\App\Http\Controllers\RestaurantsController@restaurant_user');
 
-Route::get('/platAdmin', function() {
+Route::get('/platAdmin', function () {
     return view('platAdmin');
 });
 
 Route::get('/deletePlat', '\App\Http\Controllers\PlatsController@delete_plat');
 
 Route::post('/modifyPlat', '\App\Http\Controllers\PlatsController@modify_plat');
+Route::get('/restaurant', '\App\Http\Controllers\PlatsController@affichage_plat');
