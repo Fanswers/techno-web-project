@@ -2,20 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
+
 use Illuminate\Http\Request;
-use App\Models\Restaurant;
+use App\Models\Restaurant as Restaurant;
+
 
 class RestaurantsController extends Controller
 {
-    public function new_restaurant () {
+    public function new_restaurant()
+    {
         request()->validate([
             'name' => ['required', 'max:255'],
             'image' => ['required'],
             'addresse' => ['required'],
         ]);
 
-        Restaurant::create ([
+        Restaurant::create([
             'name' => request('name'),
             'image' => request('image'),
             'addresse' => request('addresse'),
@@ -25,7 +27,8 @@ class RestaurantsController extends Controller
         return back();
     }
 
-    public function modify_restaurant () {
+    public function modify_restaurant()
+    {
         $tempid = 1;
 
         $restaurant = Restaurant::find($tempid);
@@ -34,7 +37,12 @@ class RestaurantsController extends Controller
             'image' => request('image'),
             'addresse' => request('addresse'),
         ]);
-
         return back();
+    }
+
+    public function affichageRestaurant()
+    {
+        $restaurantUser = Restaurant::all();
+        return view('profileUser', ['restaurant' => $restaurantUser]);
     }
 }
