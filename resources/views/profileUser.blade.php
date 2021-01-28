@@ -2,44 +2,61 @@
 
 @section('content')
 
+<div class="card">
+    <div class="card-header">
+        <a href="/profileUser?informations">Mes informations</a>
+        <a>|||</a>
+        <a href="/profileUser?commandes">Mes commandes</a>
+        <a>|||</a>
+        @if ( Auth::user()->type == 'restaurateur' )
+        <a href="/profileUser?restaurant">Mon restaurant</a>
+        <a>|||</a>
+        @endif
+        @if (Request::has('restaurant') )
+        <a href="/profileUser?addRestaurant">Ajouter un restaurant</a>
+        @foreach ($restaurant as $restaurant)
+    </div>
+    <div class="card-body">
+        <div class="card">
+            <div class="card-body">
+                <p>{{ $restaurant->name }}</p>
+                <p>{{ $restaurant->image }}</p>
+                <p>{{ $restaurant->addresse }}</p>
+                <br>
+            </div>
+        </div>
+        <br>
+        @endforeach
+        @endif
 
-<a href="/profileUser?informations">Mes informations</a>
-<a href="/profileUser?commandes">Mes commandes</a>
+        @if (Request::has('informations'))
+        <div class="card">
+            <div class="card-body">
+                <li class="nav-item">
+                    <p>{{ Auth::user()->secondName }}</p>
+                    <p>{{ Auth::user()->firstName }}</p>
+                    <p>{{ Auth::user()->email }}</p>
+                    <p>{{ Auth::user()->adresse }}</p>
+                    <p>{{ Auth::user()->phone }}</p>
+                    <p>{{ Auth::user()->solde }}</p>
+                </li>
+            </div>
+        </div>
+        @endif
 
-@if ( Auth::user()->type == 'restaurateur' )
-<a href="/profileUser?restaurant">Mon restaurant</a>
-@endif
-
-@if (Request::has('restaurant') )
-<a href="/profileUser?addRestaurant">Ajouter un restaurant</a>
-@foreach ($restaurant as $restaurant)
-<p>{{ $restaurant->name }}</p>
-<p>{{ $restaurant->image }}</p>
-<p>{{ $restaurant->addresse }}</p>
-<br>
-@endforeach
-@endif
-
-@if (Request::has('informations'))
-<li class="nav-item">
-    <p>{{ Auth::user()->secondName }}</p>
-    <p>{{ Auth::user()->firstName }}</p>
-    <p>{{ Auth::user()->email }}</p>
-    <p>{{ Auth::user()->adresse }}</p>
-    <p>{{ Auth::user()->phone }}</p>
-    <p>{{ Auth::user()->solde }}</p>
-</li>
-@endif
+        @if (Request::has('commandes'))
+        <li class="nav-item">
+            <p>commande 1</p>
+            <p>commande 2</p>
+            <p>commande 3</p>
+        </li>
+        @endif
+    </div>
+</div>
 
 
 
-@if (Request::has('commandes'))
-<li class="nav-item">
-    <p>commande 1</p>
-    <p>commande 2</p>
-    <p>commande 3</p>
-</li>
-@endif
+
 
 {{ Auth::user()->secondName }}
 
