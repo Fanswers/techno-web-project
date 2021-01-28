@@ -9,7 +9,7 @@ use App\Models\Restaurant as Restaurant;
 class ProfileController extends Controller
 {
     //
-    public function affichageRestaurant()
+    public function affichageData()
     {
         $user = User::all();
         $restaurantUser = Restaurant::all()->where('user_id', auth()->id());

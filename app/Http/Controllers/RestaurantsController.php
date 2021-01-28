@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Restaurant as Restaurant;
 use App\Models\Plat as Plat;
-use App\Models\User as User;
 
 
 class RestaurantsController extends Controller
@@ -50,15 +49,7 @@ class RestaurantsController extends Controller
         return back();
     }
 
-    public function affichageRestaurant()
-    {
-        $user = User::all();
-        $restaurantUser = Restaurant::all();
-        return view('profileUser', [
-            'restaurant' => $restaurantUser,
-            'user' => $user
-        ]);
-    }
+
 
     public function restaurantAdmin(request $request)
     {

@@ -26,6 +26,12 @@
                     <p>{{ $user->firstName }}</p>
                     <p>{{ $user->addresse }}</p>
                     <br>
+                    <a href="/userAdminModify?id={{ $user->id }}" class="btn btn-primary">
+                        Modifier
+                    </a>
+                    <a href="/deleteUser?id={{ $user->id }}" class="btn btn-primary background-red-500">
+                        Supprimer
+                    </a>
                 </div>
             </div>
         </div>
@@ -67,7 +73,7 @@
                     <p>{{ $restaurant->name }}</p>
                     <p>{{ $restaurant->image }}</p>
                     <p>{{ $restaurant->addresse }}</p>
-                    <a href="/profileUser?modifierRestaurant?id={{ $restaurant->id }}" class="btn btn-primary">
+                    <a href="/restaurantAdminModify?id={{ $restaurant->id }}" class="btn btn-primary">
                         Modifier
                     </a>
                     <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
