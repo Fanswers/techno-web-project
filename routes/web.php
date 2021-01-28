@@ -46,8 +46,15 @@ Route::get('/platAdmin', '\App\Http\Controllers\PlatsController@plat_admin');
 Route::get('/deletePlat', '\App\Http\Controllers\PlatsController@delete_plat');
 
 Route::post('/modifyPlat', '\App\Http\Controllers\PlatsController@modify_plat');
+
 Route::get('/restaurant', '\App\Http\Controllers\PlatsController@affichage_plat');
 
 Route::get('/userAdminModify', '\App\Http\Controllers\UserController@user_admin');
-Route::post('/modifyUser', '\App\Http\Controllers\UserController@modify_user');
+
+Route::post('/modifyUser', '\App\Http\Controllers\UserController@modify_userAdmin');
+
+Route::get('/userModify', '\App\Http\Controllers\UserController@user');
+
+Route::post('/modifyActualUser', '\App\Http\Controllers\UserController@modify_user');
+
 Route::get('/deleteUser', '\App\Http\Controllers\UserController@delete_user');

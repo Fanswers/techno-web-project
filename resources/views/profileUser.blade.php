@@ -121,6 +121,9 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <a href="/userModify?id={{ Auth::user()->id }}" class="btn btn-primary">
+                            Modifier
+                        </a>
                     </div>
                 </div>
             </div>
