@@ -1,9 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<p>{{$monRestaurant->name}}</p>
-<p>{{$monRestaurant->image}}</p>
-<p>{{$monRestaurant->addresse}}</p>
+<div class="md:flex shadow-lg  mx-6 md:mx-auto my-40 max-w-lg md:max-w-2xl h-64">
+    <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="{{$monRestaurant->image}}" alt="bag">
+    <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
+        <div class="flex items-center">
+            <h2 class="text-xl text-gray-800 font-medium mr-auto">
+                <p>{{$monRestaurant->name}}</p>
+            </h2>
+            <p class="text-gray-800 font-semibold tracking-tighter">
+            <p>{{$monRestaurant->addresse}}</p>
+            </p>
+        </div>
+    </div>
+</div>
 
 <div class="container">
     <div class="row justify-content-center">
