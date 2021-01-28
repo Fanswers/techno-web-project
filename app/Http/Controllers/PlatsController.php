@@ -9,7 +9,7 @@ use App\Models\Commande;
 
 class PlatsController extends Controller
 {
-    public function new_plat_commande(request $request)
+    public function new_plat(request $request)
     {
         $tempId = $request->id;
 
