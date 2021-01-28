@@ -29,4 +29,11 @@ class PlatsController extends Controller
 
         return back();
     }
+
+    public function affichage_plat(request $request)
+    {
+        $id = $request->id;
+        $platDuRestaurant = Plat::all()->where('restaurant_id', $id);
+        return view('restaurant', ['plat' => $platDuRestaurant]);
+    }
 }

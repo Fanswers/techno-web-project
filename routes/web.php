@@ -40,3 +40,5 @@ Route::get('/profileUser', '\App\Http\Controllers\RestaurantsController@affichag
 
 Route::get('/deleteRestaurant', '\App\Http\Controllers\RestaurantsController@delete_restaurant');
 Route::get('/restaurantAdmin', '\App\Http\Controllers\RestaurantsController@restaurantAdmin');
+
+Route::get('/restaurant', '\App\Http\Controllers\PlatsController@affichage_plat');

@@ -24,7 +24,7 @@
                                 {{ $restaurant->image }}
                             </p>
                             <div class="flex items-center justify-end mt-4 top-auto">
-                                <button class=" bg-gray-200 text-blue-600 px-2 py-2 rounded-md mr-2">Commander</button>
+                                <a class=" bg-gray-200 text-blue-600 px-2 py-2 rounded-md mr-2" href="/restaurant?id={{ $restaurant->id }}">Commander</a>
 
                             </div>
                         </div>
