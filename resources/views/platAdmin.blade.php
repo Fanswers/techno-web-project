@@ -14,7 +14,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $plat->name }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                             <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
-                                <input id="description" type="text" class="form-control @error('adresse') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="description" autofocus>
+                                <input id="description" type="text" class="form-control @error('adresse') is-invalid @enderror" name="description" value="{{ $plat->description }}" required autocomplete="description" autofocus>
 
                                 @error('description')
                                 <span class="invalid-feedback" role="alert">
@@ -42,7 +42,7 @@
                             <label for="image" class="col-md-4 col-form-label text-md-right">{{ __('image') }}</label>
 
                             <div class="col-md-6">
-                                <input id="image" type="text" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
+                                <input id="image" type="text" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ $plat->image }}" required autocomplete="image" autofocus>
 
                                 @error('image')
                                 <span class="invalid-feedback" role="alert">
@@ -56,7 +56,7 @@
                             <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('price') }}</label>
 
                             <div class="col-md-6">
-                                <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus>
+                                <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $plat->price }}" required autocomplete="price" autofocus>
 
                                 @error('price')
                                 <span class="invalid-feedback" role="alert">

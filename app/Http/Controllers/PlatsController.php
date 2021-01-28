@@ -60,4 +60,11 @@ class PlatsController extends Controller
         $platDuRestaurant = Plat::all()->where('restaurant_id', $id);
         return view('restaurant', ['plat' => $platDuRestaurant]);
     }
+
+    public function plat_admin(request $request)
+    {
+        $id = $request->id;
+        $plat = Plat::find($id);
+        return view('platAdmin', ['plat' => $plat]);
+    }
 }

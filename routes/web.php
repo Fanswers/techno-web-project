@@ -21,10 +21,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
 Route::get('/profileUser', [App\Http\Controllers\ProfileController::class, 'affichageData']);
 
-Route::get('/restaurant', function () {
-    return view('restaurant');
-});
-
 Route::get('/restaurantAdmin', function () {
     return view('restaurantAdmin');
 });
@@ -37,21 +33,15 @@ Route::post('/modifyRestaurant', '\App\Http\Controllers\RestaurantsController@mo
 
 Route::post('/profileUser', '\App\Http\Controllers\RestaurantsController@new_restaurant');
 
-
-
 Route::get('/deleteRestaurant', '\App\Http\Controllers\RestaurantsController@delete_restaurant');
 
 Route::get('/restaurantAdmin', '\App\Http\Controllers\RestaurantsController@restaurantAdmin');
 
-Route::get('/restaurantAdminModify', function () {
-    return view('restaurantAdminModify');
-});
+Route::get('/restaurantAdminModify', '\App\Http\Controllers\RestaurantsController@restaurant_admin');
 
 Route::get('/restaurantUser', '\App\Http\Controllers\RestaurantsController@restaurant_user');
 
-Route::get('/platAdmin', function () {
-    return view('platAdmin');
-});
+Route::get('/platAdmin', '\App\Http\Controllers\PlatsController@plat_admin');
 
 Route::get('/deletePlat', '\App\Http\Controllers\PlatsController@delete_plat');
 

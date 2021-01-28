@@ -61,4 +61,11 @@ class RestaurantsController extends Controller
             'plat' => $platDuRestaurant
         ]);
     }
+
+    public function restaurant_admin(request $request)
+    {
+        $id = $request->id;
+        $restaurant = Restaurant::find($id);
+        return view('restaurantAdminModify', ['restaurant' => $restaurant]);
+    }
 }
