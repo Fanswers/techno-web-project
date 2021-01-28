@@ -28,11 +28,10 @@ class RestaurantsController extends Controller
         return back();
     }
 
-    public function modify_restaurant()
+    public function modify_restaurant(request $request)
     {
-        $tempid = 1;
-
-        $restaurant = Restaurant::find($tempid);
+        $id = $request->id;
+        $restaurant = Restaurant::find($id);
         $restaurant->update([
             'name' => request('name'),
             'image' => request('image'),
