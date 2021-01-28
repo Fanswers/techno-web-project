@@ -7,9 +7,29 @@
         <a href="/profileUser?informations">Mes informations</a>
         <a>|||</a>
         <a href="/profileUser?commandes">Mes commandes</a>
-        <a>|||</a>
         @if ( Auth::user()->type == 'restaurateur' )
+        <a>|||</a>
         <a href="/profileUser?restaurant">Mon restaurant</a>
+        @endif
+        @if ( Auth::user()->type == 'administrateur' )
+        <a>|||</a>
+        <a href="/profileUser?utilisateurs">Les utilisateurs</a>
+        <a>|||</a>
+        <a href="/profileUser?restaurantAdmin">Les restaurants</a>
+        @endif
+        @if (Request::has('utilisateurs') )
+        @foreach ($user as $user)
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <p>{{ $user->secondName }}</p>
+                    <p>{{ $user->firstName }}</p>
+                    <p>{{ $user->addresse }}</p>
+                    <br>
+                </div>
+            </div>
+        </div>
+        @endforeach
         @endif
         @if (Request::has('restaurant') )
         <a>|||</a>
@@ -22,6 +42,32 @@
                     <p>{{ $restaurant->image }}</p>
                     <p>{{ $restaurant->addresse }}</p>
                     <a href="/restaurantAdminModify?id={{ $restaurant->id }}" class="btn btn-primary">
+                        Modifier
+                    </a>
+                    <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
+                        Supprimer
+                    </a>
+                    <a href="/restaurantAdmin?id={{ $restaurant->id }}" class="btn btn-primary">
+                        Aperçu
+                    </a>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <br>
+        @endforeach
+        @endif
+        @if (Request::has('restaurantAdmin') )
+        <a>|||</a>
+        <a href="/profileUser?addRestaurant">Ajouter un restaurant</a>
+        @foreach ($restaurantAdmin as $restaurant)
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <p>{{ $restaurant->name }}</p>
+                    <p>{{ $restaurant->image }}</p>
+                    <p>{{ $restaurant->addresse }}</p>
+                    <a href="/profileUser?modifierRestaurant?id={{ $restaurant->id }}" class="btn btn-primary">
                         Modifier
                     </a>
                     <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
@@ -65,14 +111,6 @@
     </div>
 </div>
 </div>
-
-
-
-
-
-{{ Auth::user()->secondName }}
-
-
 
 @if (Request::has('addRestaurant'))
 <div class="container">

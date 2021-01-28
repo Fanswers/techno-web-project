@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/profileUser', [App\Http\Controllers\ProfileController::class, 'index']);
+Route::get('/profileUser', [App\Http\Controllers\ProfileController::class, 'affichageRestaurant']);
 
 Route::get('/restaurant', function () {
     return view('restaurant');
@@ -36,7 +37,7 @@ Route::post('/modifyRestaurant', '\App\Http\Controllers\RestaurantsController@mo
 
 Route::post('/profileUser', '\App\Http\Controllers\RestaurantsController@new_restaurant');
 
-Route::get('/profileUser', '\App\Http\Controllers\RestaurantsController@affichageRestaurant');
+
 
 Route::get('/deleteRestaurant', '\App\Http\Controllers\RestaurantsController@delete_restaurant');
 
