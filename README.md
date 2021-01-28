@@ -4,8 +4,7 @@ Larrode Alexis - Cruz Julien  B2A <br/>
 <br/>
 Ce projet est un site permettant de commander dans différents réstaurants<br/>
 <br/>
-Pour utiliser le projet dans le terminale faire : <br/>
-'code' cd controle-laravel 'code'<br/>
+Pour utiliser le projet se rendre dans le dosier du projet, et dans le terminale faire : <br/>
 -composer install <br/>
 -npm install <br/>
 -copy .env.example .env <br/>
