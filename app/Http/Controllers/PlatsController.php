@@ -29,4 +29,28 @@ class PlatsController extends Controller
 
         return back();
     }
+
+    public function modify_plat(request $request)
+    {
+        $id = $request->id;
+
+        $plat = Plat::find($id);
+        $plat->update([
+            'name' => request('name'),
+            'image' => request('image'),
+            'description' => request('description'),
+            'price' => request('price')
+        ]);
+
+        return back();
+    }
+
+    public function delete_plat (request $request)
+    {
+        $id = $request->id;
+        
+        Plat::where('id', $id)->delete();
+
+        return back();
+    }
 }

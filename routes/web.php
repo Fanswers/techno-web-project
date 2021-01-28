@@ -42,4 +42,15 @@ Route::post('/profileUser', '\App\Http\Controllers\RestaurantsController@new_res
 Route::get('/profileUser', '\App\Http\Controllers\RestaurantsController@affichageRestaurant');
 
 Route::get('/deleteRestaurant', '\App\Http\Controllers\RestaurantsController@delete_restaurant');
+
 Route::get('/restaurantAdmin', '\App\Http\Controllers\RestaurantsController@restaurantAdmin');
+
+Route::get('/restaurantUser', '\App\Http\Controllers\RestaurantsController@restaurant_user');
+
+Route::get('/platAdmin', function() {
+    return view('platAdmin');
+});
+
+Route::get('/deletePlat', '\App\Http\Controllers\PlatsController@delete_plat');
+
+Route::post('/modifyPlat', '\App\Http\Controllers\PlatsController@modify_plat');
