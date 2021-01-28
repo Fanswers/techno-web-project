@@ -15,22 +15,23 @@
         <a>|||</a>
         <a href="/profileUser?addRestaurant">Ajouter un restaurant</a>
         @foreach ($restaurant as $restaurant)
-    </div>
-    <div class="card-body">
-        <div class="card">
-            <div class="card-body">
-                <p>{{ $restaurant->name }}</p>
-                <p>{{ $restaurant->image }}</p>
-                <p>{{ $restaurant->addresse }}</p>
-                <a href="/profileUser?modifierRestaurant?id={{ $restaurant->id }}" class="btn btn-primary">
-                    Modifier
-                </a>
-                <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
-                    Supprimer
+        <div class="card-body">
+            <div class="card">
+                <div class="card-body">
+                    <p>{{ $restaurant->name }}</p>
+                    <p>{{ $restaurant->image }}</p>
+                    <p>{{ $restaurant->addresse }}</p>
+                    <a href="/profileUser?modifierRestaurant?id={{ $restaurant->id }}" class="btn btn-primary">
+                        Modifier
+                    </a>
+                    <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
+                        Supprimer
+                    </a>
                     <a href="/restaurantAdmin?id={{ $restaurant->id }}" class="btn btn-primary">
                         Aperçu
                     </a>
                     <br>
+                </div>
             </div>
         </div>
         <br>
@@ -62,6 +63,7 @@
         </div>
         @endif
     </div>
+</div>
 </div>
 
 
