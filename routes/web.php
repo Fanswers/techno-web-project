@@ -34,4 +34,7 @@ Route::post('/new_plat', '\App\Http\Controllers\PlatsController@new_plat');
 Route::post('/modify_restaurant', '\App\Http\Controllers\RestaurantsController@modify_restaurant');
 
 Route::post('/profileUser', '\App\Http\Controllers\RestaurantsController@new_restaurant');
+
 Route::get('/profileUser', '\App\Http\Controllers\RestaurantsController@affichageRestaurant');
+
+Route::get('/deleteRestaurant', '\App\Http\Controllers\RestaurantsController@delete_restaurant');

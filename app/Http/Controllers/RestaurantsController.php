@@ -40,6 +40,15 @@ class RestaurantsController extends Controller
         return back();
     }
 
+    public function delete_restaurant(request $request)
+    {
+        $id = $request->id;
+        
+        Restaurant::where('id', $id)->delete();
+
+        return back();
+    }
+
     public function affichageRestaurant()
     {
         $restaurantUser = Restaurant::all();

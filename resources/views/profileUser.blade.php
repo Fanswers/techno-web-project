@@ -25,6 +25,9 @@
                 <a href="/profileUser?modifierRestaurant?id={{ $restaurant->id }}" class="btn btn-primary">
                     Modifier
                 </a>
+                <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
+                    Supprimer
+                </a>
                 <br>
             </div>
         </div>
