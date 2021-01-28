@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\Plat;
+use App\Models\Commande;
 
 class PlatsController extends Controller
 {
-    public function new_plat(request $request)
+    public function new_plat_commande(request $request)
     {
         $tempId = $request->id;
 
@@ -58,6 +59,19 @@ class PlatsController extends Controller
     {
         $id = $request->id;
         $platDuRestaurant = Plat::all()->where('restaurant_id', $id);
+        request()->validate([
+            'description' => [],
+            'price' => [],
+            'user_id' => [],
+            'restaurant_id' => [],
+        ]);
+
+        Commande::create([
+            'description' => '',
+            'price' => '',
+            'user_id' => auth()->id(),
+            'restaurant_id' => $id
+        ]);
         return view('restaurant', ['plat' => $platDuRestaurant]);
     }
 }
