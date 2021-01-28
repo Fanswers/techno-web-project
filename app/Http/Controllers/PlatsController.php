@@ -8,8 +8,9 @@ use App\Models\Plat;
 
 class PlatsController extends Controller
 {
-    public function new_plat () {
-        $tempId = 1;
+    public function new_plat(request $request)
+    {
+        $tempId = $request->id;
 
         request()->validate([
             'name' => ['required', 'max:255'],
@@ -18,7 +19,7 @@ class PlatsController extends Controller
             'price' => ['required']
         ]);
 
-        Plat::create ([
+        Plat::create([
             'name' => request('name'),
             'image' => request('image'),
             'description' => request('description'),

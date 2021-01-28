@@ -27,8 +27,10 @@
                 </a>
                 <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
                     Supprimer
-                </a>
-                <br>
+                    <a href="/restaurantAdmin?id={{ $restaurant->id }}" class="btn btn-primary">
+                        Aperçu
+                    </a>
+                    <br>
             </div>
         </div>
         <br>

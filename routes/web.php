@@ -27,6 +27,10 @@ Route::get('/restaurant', function () {
     return view('restaurant');
 });
 
+Route::get('/restaurantAdmin', function () {
+    return view('restaurantAdmin');
+});
+
 Route::post('/new_restaurant', '\App\Http\Controllers\RestaurantsController@new_restaurant');
 
 Route::post('/new_plat', '\App\Http\Controllers\PlatsController@new_plat');
@@ -38,3 +42,4 @@ Route::post('/profileUser', '\App\Http\Controllers\RestaurantsController@new_res
 Route::get('/profileUser', '\App\Http\Controllers\RestaurantsController@affichageRestaurant');
 
 Route::get('/deleteRestaurant', '\App\Http\Controllers\RestaurantsController@delete_restaurant');
+Route::get('/restaurantAdmin', '\App\Http\Controllers\RestaurantsController@restaurantAdmin');
