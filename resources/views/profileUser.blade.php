@@ -22,9 +22,12 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-body">
-                    <p>{{ $user->secondName }}</p>
-                    <p>{{ $user->firstName }}</p>
-                    <p>{{ $user->addresse }}</p>
+                    <p>Type : {{ $user->type }}</p>
+                    <p>Prénom : {{ $user->secondName }}</p>
+                    <p>Nom : {{ $user->firstName }}</p>
+                    <p>Email : {{ $user->email }}</p>
+                    <p>Adresse : {{ $user->adresse }}</p>
+                    <p>Téléphone : {{ $user->phone }}</p>
                     <br>
                     <a href="/userAdminModify?id={{ $user->id }}" class="btn btn-primary">
                         Modifier
@@ -42,11 +45,17 @@
         <a href="/profileUser?addRestaurant">Ajouter un restaurant</a>
         @foreach ($restaurant as $restaurant)
         <div class="card-body">
-            <div class="card">
-                <div class="card-body">
-                    <p>{{ $restaurant->name }}</p>
-                    <p>{{ $restaurant->image }}</p>
-                    <p>{{ $restaurant->addresse }}</p>
+            <div class="md:flex shadow-lg  mx-6 md:mx-auto my-40 max-w-lg md:max-w-2xl h-64">
+                <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="{{ $restaurant->image }}" alt="bag">
+                <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
+                    <div class="flex items-center">
+                        <h2 class="text-xl text-gray-800 font-medium mr-auto">
+                            <p>{{ $restaurant->name }}</p>
+                        </h2>
+                        <p class="text-gray-800 font-semibold tracking-tighter">
+                        <p>{{ $restaurant->addresse }}</p>
+                        </p>
+                    </div>
                     <a href="/restaurantAdminModify?id={{ $restaurant->id }}" class="btn btn-primary">
                         Modifier
                     </a>
@@ -56,7 +65,6 @@
                     <a href="/restaurantAdmin?id={{ $restaurant->id }}" class="btn btn-primary">
                         Aperçu
                     </a>
-                    <br>
                 </div>
             </div>
         </div>
@@ -70,18 +78,28 @@
         <div class="card-body">
             <div class="card">
                 <div class="card-body">
-                    <p>{{ $restaurant->name }}</p>
-                    <p>{{ $restaurant->image }}</p>
-                    <p>{{ $restaurant->addresse }}</p>
-                    <a href="/restaurantAdminModify?id={{ $restaurant->id }}" class="btn btn-primary">
-                        Modifier
-                    </a>
-                    <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
-                        Supprimer
-                    </a>
-                    <a href="/restaurantAdmin?id={{ $restaurant->id }}" class="btn btn-primary">
-                        Aperçu
-                    </a>
+                    <div class="md:flex shadow-lg  mx-6 md:mx-auto my-40 max-w-lg md:max-w-2xl h-64">
+                        <img class="h-full w-full md:w-1/3  object-cover rounded-lg rounded-r-none pb-5/6" src="{{ $restaurant->image }}" alt="bag">
+                        <div class="w-full md:w-2/3 px-4 py-4 bg-white rounded-lg">
+                            <div class="flex items-center">
+                                <h2 class="text-xl text-gray-800 font-medium mr-auto">
+                                    <p>{{ $restaurant->name }}</p>
+                                </h2>
+                                <p class="text-gray-800 font-semibold tracking-tighter">
+                                <p>{{ $restaurant->addresse }}</p>
+                                </p>
+                            </div>
+                            <a href="/restaurantAdminModify?id={{ $restaurant->id }}" class="btn btn-primary">
+                                Modifier
+                            </a>
+                            <a href="/deleteRestaurant?id={{ $restaurant->id }}" class="btn btn-primary background-red-500">
+                                Supprimer
+                            </a>
+                            <a href="/restaurantAdmin?id={{ $restaurant->id }}" class="btn btn-primary">
+                                Aperçu
+                            </a>
+                        </div>
+                    </div>
                     <br>
                 </div>
             </div>
